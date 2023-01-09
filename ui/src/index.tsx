@@ -1,15 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
+import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
+import Router, { PageBuild } from './components/Router';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const pages: PageBuild[] = [
+  {
+    path: /^\//,
+    title: "Home",
+    content: <Home />
+  }
+];
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Router pages={pages} />
   </React.StrictMode>
 );
 
